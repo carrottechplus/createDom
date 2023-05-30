@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적 Dom 생성</title>
+</head>
+
+<body>
+  <!-- <h1><a href="https://www.naver.com" target="_blank">naver</a></h1> -->
+
+  <!-- 
+    element 노드 2개 
+    a 태그 > attribute 노드 2개 , text 노드 1개
+  -->
+
+  <script>
+    // h1, a element 노드 생성
+    const h1 = document.createElement('h1');
+    const a = document.createElement('a');
+
+    // href, target attribute 노드 생성
+    const href = document.createAttribute('href');
+    const target = document.createAttribute('target');
+
+    // attribute 노드에 value 값 연결
+    href.value = 'https://www.naver.com';
+    target.value = '_blank';
+
+    // a element 노드에 attribute 노드 바인딩
+    a.setAttributeNode(href);
+    a.setAttributeNode(target);
+    // console.log(a);
+    // console.dir(a);
+
+    // a element 노드에 text 노드 연결
+    a.innerText = '네이버';
+
+    // h1 element 노드에 a element 노드를 자식으로 붙이기
+    h1.append(a);
+
+    // body 안 쪽에 h1 노드 붙이기
+    document.body.prepend(h1);
+
+
+  </script>
+</body>
+
+</html>
